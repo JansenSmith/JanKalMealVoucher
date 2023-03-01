@@ -33,7 +33,7 @@ innards = innards.movez(7).movey(1)
 voucher = voucher.union(innards)
 
 //Font ribbonFont = new Font("Arial",  5)
-Font ribbonFont = new Font("Constantia Bold",  5)
+Font ribbonFont = new Font("Constantia Bold",  4)
 Font enjoyFont = new Font("Caladea Italic",  6.5)
 Font nameFont = new Font("Caladea Italic",  7.5)
 
@@ -41,8 +41,8 @@ CSG ribbonText = CSG.unionAll(TextExtrude.text((double)3.0,"ONE MEAL",ribbonFont
 	.rotx(180).toZMin().moveToCenterX().moveToCenterY()
 	.movex(relief.getCenterX())
 	.movey(relief.getCenterY()-3.5)
-	.movez(7)
-voucher = voucher.union(ribbonText)
+	.movez(4)
+voucher = voucher.difference(ribbonText)
 
 CSG enjoyText = CSG.unionAll(TextExtrude.text((double)3.0,"ENJOY A MEAL",enjoyFont))
 	.rotx(180).toZMin().moveToCenterX().toYMax()
