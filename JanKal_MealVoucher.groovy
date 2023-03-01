@@ -26,16 +26,16 @@ def lines = s.extrudeLayerToCSG(3,"Lines")
 lines = lines.movez(7)
 voucher = voucher.difference(lines)
 def relief = s.extrudeLayerToCSG(3,"Relief")
-relief = relief.movez(7)//.hull(relief.toolOffset(2))
+relief = relief.movez(7).movey(1)
 voucher = voucher.difference(relief)
 def innards = s.extrudeLayerToCSG(3,"Innards")
-innards = innards.movez(7)
+innards = innards.movez(7).movey(1)
 voucher = voucher.union(innards)
 
 Font ribbonFont = new Font("Arial",  5)
 //Font ribbonFont = new Font("Constantia",  5)
-Font playfulFont = new Font("Arial",  7)
-//Font playfulFont = new Font("MV Boli",  30)
+Font playfulFont = new Font("Arial",  7.5)
+//Font playfulFont = new Font("Comic Sans MS",  7.5)
 
 CSG ribbonText = CSG.unionAll(TextExtrude.text((double)3.0,"ONE MEAL",ribbonFont))
 	.rotx(180).toZMin().centerx().centery()
@@ -49,8 +49,32 @@ CSG enjoyText = CSG.unionAll(TextExtrude.text((double)3.0,"ENJOY A MEAL",playful
 	.movex(relief.getCenterX())
 	.movey(lines.getMaxY())
 	.movez(7)
-println(enjoyText.getCenterX())
 voucher = voucher.difference(enjoyText)
 
-return voucher.setColor(javafx.scene.paint.Color.MAGENTA)
+CSG usText = CSG.unionAll(TextExtrude.text((double)3.0,"ON US",playfulFont))
+	.rotx(180).toZMin().centerx().toYMin()
+	.movex(relief.getCenterX())
+	.movey(lines.getMinY())
+	.movez(7)
+voucher = voucher.difference(usText)
+
+CSG danyelText = CSG.unionAll(TextExtrude.text((double)3.0,"Danyel",playfulFont))
+	.rotx(180).rotz(90).toZMin().toXMax().centery()
+	.movex(lines.getMinX()-3.5)
+	.movey(ticket.getCenterY())
+	.movez(7)
+voucher = voucher.difference(danyelText)
+
+CSG jansenText = CSG.unionAll(TextExtrude.text((double)3.0,"Jansen",playfulFont))
+	.rotx(180).rotz(-90).toZMin().toXMin().centery()
+	.movex(lines.getMaxX()+3.5)
+	.movey(ticket.getCenterY())
+	.movez(7)
+voucher = voucher.difference(jansenText)
+
+voucher = voucher.setName("voucher").setColor(javafx.scene.paint.Color.MAGENTA)
+
+println(playfulFont.getFamilies())
+
+return voucher
 //return ribbonText
