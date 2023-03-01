@@ -34,8 +34,8 @@ voucher = voucher.union(innards)
 
 Font ribbonFont = new Font("Arial",  5)
 //Font ribbonFont = new Font("Constantia",  5)
-Font playfulFont = new Font("Arial",  7.5)
-//Font playfulFont = new Font("Comic Sans MS",  7.5)
+//Font playfulFont = new Font("Arial",  7.5)
+Font playfulFont = new Font("Caladea Italic",  7.5)
 
 CSG ribbonText = CSG.unionAll(TextExtrude.text((double)3.0,"ONE MEAL",ribbonFont))
 	.rotx(180).toZMin().centerx().centery()
@@ -74,7 +74,7 @@ voucher = voucher.difference(jansenText)
 
 voucher = voucher.setName("voucher").setColor(javafx.scene.paint.Color.MAGENTA)
 
-println(playfulFont.getFamilies())
+println(playfulFont.getFontNames())
 
 return voucher
 //return ribbonText
