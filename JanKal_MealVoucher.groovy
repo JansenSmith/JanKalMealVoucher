@@ -74,7 +74,7 @@ voucher = voucher.difference(jansenText)
 
 voucher = voucher.setName("voucher").setColor(javafx.scene.paint.Color.MAGENTA)
 
-println(playfulFont.getFontNames())
+//println(playfulFont.getFontNames())
 
 return voucher
 //return ribbonText
