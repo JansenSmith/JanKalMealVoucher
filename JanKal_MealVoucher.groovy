@@ -72,7 +72,7 @@ CSG jansenText = CSG.unionAll(TextExtrude.text((double)3.0,"Jansen",nameFont))
 	.movez(7)
 voucher = voucher.difference(jansenText)
 
-voucher = voucher.setName("voucher").setColor(javafx.scene.paint.Color.MAGENTA).moveToCenter().toZMin()
+voucher = voucher.moveToCenter().toZMin().setName("voucher").setColor(javafx.scene.paint.Color.MAGENTA)
 
 //println(playfulFont.getFontNames())
 
