@@ -32,8 +32,8 @@ def innards = s.extrudeLayerToCSG(3,"Innards")
 innards = innards.movez(7).movey(1)
 voucher = voucher.union(innards)
 
-Font ribbonFont = new Font("Arial",  5)
-//Font ribbonFont = new Font("Constantia",  5)
+//Font ribbonFont = new Font("Arial",  5)
+Font ribbonFont = new Font("Constantia Bold",  5)
 //Font playfulFont = new Font("Arial",  7.5)
 Font playfulFont = new Font("Caladea Italic",  7.5)
 
