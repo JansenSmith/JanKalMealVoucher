@@ -76,5 +76,5 @@ voucher = voucher.moveToCenter().toZMin().setName("voucher").setColor(javafx.sce
 
 //println(playfulFont.getFontNames())
 
-return voucher
+return [voucher, voucher, voucher, voucher]
 //return ribbonText
