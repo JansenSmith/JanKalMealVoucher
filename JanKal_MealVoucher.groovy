@@ -72,9 +72,14 @@ CSG jansenText = CSG.unionAll(TextExtrude.text((double)3.0,"Jansen",nameFont))
 	.movez(7)
 voucher = voucher.difference(jansenText)
 
-voucher = voucher.moveToCenter().toZMin().setName("voucher").setColor(javafx.scene.paint.Color.MAGENTA)
+voucher = voucher.moveToCenter().toZMin().setColor(javafx.scene.paint.Color.MAGENTA)
+
+voucher1 = voucher.setName("voucher1")
+voucher2 = voucher.setName("voucher2")
+voucher3 = voucher.setName("voucher3")
+voucher4 = voucher.setName("voucher4")
 
 //println(playfulFont.getFontNames())
 
-return [voucher, voucher, voucher, voucher]
+return [voucher1, voucher2, voucher3, voucher4]
 //return ribbonText
