@@ -7,7 +7,7 @@ import javafx.scene.text.Font;
 File f = ScriptingEngine
 	.fileFromGit(
 		"https://github.com/JansenSmith/JanKalMealVoucher.git",//git repo URL
-		"main",//branch
+		"refs/heads/main",//branch
 		"JanKal_MealVoucher.svg"// File from within the Git repo
 	)
 println "Extruding SVG "+f.getAbsolutePath()
